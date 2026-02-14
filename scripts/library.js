@@ -67,6 +67,17 @@ const bookFactory = () => {
     },
     showForm() {
       if (!formCreated) {
+        const dialog = document.createElement("dialog");
+        dialog.style.width = "250px";
+        dialog.style.display = "flex";
+        dialog.style.gap = "16px";
+        dialog.style.border = "1px solid";
+        dialog.style.position = "fixed";
+        dialog.style.top = "50%";
+        dialog.style.left = "50%";
+        dialog.style.transform = "translate(-50%, -50%)";
+        dialog.style.margin = "0";
+
         const form = document.createElement("form");
         form.style.width = "250px";
         form.style.display = "flex";
@@ -122,8 +133,8 @@ const bookFactory = () => {
           );
           this.reset().displayBooks();
         });
-
-        document.getElementById("books").appendChild(form);
+        dialog.appendChild(form);
+        document.getElementById("books").appendChild(dialog);
         formCreated = true;
       }
 
